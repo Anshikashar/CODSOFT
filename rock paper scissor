@@ -1,5 +1,6 @@
 import random
 
+#play function
 def play():
     print("Welcome to ROCK PAPER SCISSOR GAME \N{grinning face}!!!")
     print("INSTRUCTIONS!!!")
@@ -22,7 +23,7 @@ def play():
     print(f'Result : {winner(user,computer)}')
 
     
-
+#function for deciding the winner
 def  winner(user,computer):   
     if user==computer:
         return "It's a Tie!\U0001F60E"
@@ -33,7 +34,7 @@ def  winner(user,computer):
          return "You lose!\N{loudly crying face}"
     
 
-    
+#main function  
 def main():
     play()
     while True:
@@ -45,7 +46,9 @@ def main():
             break
 
     
-    
+#function call will start from here   
 if __name__=="__main__":
     main()
+    
+    
     
