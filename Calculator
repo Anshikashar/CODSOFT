@@ -1,22 +1,27 @@
 #Calculator
 def display():
     print("1.ADD\n2.SUBTRACT\n3.MULTIPLY\n4.DIVIDE\n")
-    
+
+#function for addition    
 def add(n1,n2):
     print(n1+n2)
 
+#function  for subtraction
 def subtract(n1,n2):
     print(n1-n2)
     
+#function for multiplication
 def multiply(n1,n2):
     print(n1*n2)
-    
+ 
+#function for division
 def divide(n1,n2):
     if n2==0:
         print("INVALID!!!")
     else:
         print(n1/n2)
-        
+
+#main function        
 def main():
     while True:
         display()
@@ -35,7 +40,8 @@ def main():
         if c=='n':
             print("Thankyou for using my calculator\N{grinning face}!!")
             break
-        
+
+#function call will start from here        
 if __name__=="__main__":
     main()
     
