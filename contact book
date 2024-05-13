@@ -1,25 +1,30 @@
+#Empty list of contacts
 contacts = []
 
+#function for adding contacts
 def add(name, phone_number, email, address):
     contacts.append({"name": name, "phone_number": phone_number, "email": email, "address": address})
-    print("Contact added successfully.")
+    print("Added successfully!")
 
+#function for viewing contacts
 def view():
     if contacts:
         print("Contact List:")
         for i, contact in enumerate(contacts, start=1):
-            print(f"{i}. {contact['name']} - {contact['phone_number']}")
+            print(f"{i}. {contact['name']}:{contact['phone_number']}")
     else:
-        print("Contact list is empty.")
+        print("Contact list is empty!")
 
+#function for searching contacts
 def search(keyword):
     for contact in contacts:
         if keyword.lower() in contact['name'].lower() or keyword in contact['phone_number']: 
             print("Search Results:")
-            print(f" {contact['name']} - {contact['phone_number']}")
+            print(f" {contact['name']}:{contact['phone_number']}")
         else:
-           print("No contacts found.")
+           print("Contact not found!")
 
+#function for updating contacts
 def update(index, name=None, phone_number=None, email=None, address=None):
     if 0 < index <= len(contacts):
         contact = contacts[index - 1]
@@ -27,25 +32,27 @@ def update(index, name=None, phone_number=None, email=None, address=None):
         contact['phone_number'] = phone_number
         contact['email'] = email
         contact['address'] = address 
-        print("Contact updated successfully.")
+        print("Updated successfully!")
     else:
-        print("Invalid contact index.")
+        print("Invalid index!")
 
+#function for deleting function
 def delete(index):
     if 0 < index <= len(contacts):
         del contacts[index - 1]
-        print("Contact deleted successfully.")
+        print("Deleted successfully.")
     else:
-        print("Invalid contact index.")
+        print("Invalid index!")
 
+#main function
 def main():
     while True:
         print("\nContact Book Menu:")
-        print("1. View Contacts")
-        print("2. Add Contact")
-        print("3. Search Contact")
-        print("4. Update Contact")
-        print("5. Delete Contact")
+        print("1. View ")
+        print("2. Add ")
+        print("3. Search")
+        print("4. Update")
+        print("5. Delete")
         print("6. Exit")
 
         choice = input("Enter your choice: ")
@@ -67,10 +74,10 @@ def main():
         elif choice == "4":
             view()
             index = int(input("Enter the index of the contact you want to update: "))
-            name = input("Enter new name: ")
-            phone_number = input("Enter new phone number: ")
-            email = input("Enter new email: ")
-            address = input("Enter new address: ")
+            name = input("Enter name: ")
+            phone_number = input("Enter phone number: ")
+            email = input("Enter email id: ")
+            address = input("Enter address: ")
             update(index, name, phone_number, email, address)
 
         elif choice == "5":
@@ -83,7 +90,9 @@ def main():
             break
 
         else:
-            print("Invalid choice. Please try again.")
+            print("Choose a valid option!!!")
 
+#function call will start from here
 if __name__ == "__main__":
     main()
+
