@@ -1,54 +1,54 @@
-import random
+#TO-DO LIST
 
-#play function
-def play():
-    print("Welcome to ROCK PAPER SCISSOR GAME \N{grinning face}!!!")
-    print("INSTRUCTIONS!!!")
-    print("1.Enter 'rock','paper' or 'scissor'")
-    print("2.Computer will choose randomly")
-    print("---------------------------------------")
-    print("RULES!!!:")
-    print("1.Rock beats scissor")
-    print("2.Scissor beats paper")
-    print("3.Paper beats rock")
-    print("---------------------------------------")
-    
-    user=input("Enter your choice: ")
-    computer=random.choice(['rock','paper','scissor'])
-    winner(user, computer)
-    print("---------------------------------------")
-    print(f'Your choice : {user} ')
-    print(f'Computer choice : {computer}')
-    print("-----------------------------------------")
-    print(f'Result : {winner(user,computer)}')
+#Displaying the options to the user
+def display_task():
+    print("0.EXIT\n1.ADD TASKS\n2.DELETE TASKS\n3.VIEW TASKS\n")
 
+#For adding the tasks in the to do list
+def adding_task(task):
+    tasks=input("Enter the task: ")
+    task.append(tasks)
     
-#function for deciding the winner
-def  winner(user,computer):   
-    if user==computer:
-        return "It's a Tie!\U0001F60E"
-    elif ((user == "rock" and computer == "scissor") or (user== "scissor" and computer == "paper") or 
-          (user == "paper" and computer == "rock")):
-        return "You win!\U0001F973"
+#For deleting the task from the to do list    
+def deleting_task(task):
+    if len(task)==0:
+        return
     else:
-         return "You lose!\N{loudly crying face}"
-    
-
-#main function  
-def main():
-    play()
-    while True:
-        ch=input("Do you want to play again(y/n): ").lower()
-        if ch=='y':
-            play()
+        i=int(input("Enter the index of the task which you want to delete: "))
+        if i<0 or i>len(task):
+            print("Please enter the valid index!!!")
         else:
-            print("Thankyou for playing\U0001F496!!!")
-            break
+            task.pop(i-1)
 
-    
-#function call will start from here   
+#To view the to do list
+def view(task):
+    if len(task)==0:
+        return
+    else:
+        for i,task in enumerate(task,start=1):#i=index of the task
+            print(f'{i}.{task}')#f string
+     
+#main function
+def main():
+    task=[]
+    while True:
+        display_task()
+        choice=int(input("Please enter your choice, what do you want to perform?: "))
+        if choice==1:
+            adding_task(task)
+        elif choice==2:
+            deleting_task(task)
+        elif choice==3:
+            view(task)
+        else:
+            print("Thankyou for using this application\N{grinning face}!!")
+            break
+        
 if __name__=="__main__":
-    main()
+    main()#calling  main function from here
     
+            
+    
+        
     
     
